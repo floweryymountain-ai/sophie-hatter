@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="Sophie Bot - Your Smart WhatsApp Assistant">
+<title>Sophie Bot — Official Website</title>
+<style>
+:root {
+  --bg:#080d1b;
+  --panel:#101a30;
+  --blue:#398bff;
+  --text:#f3f7ff;
+  --muted:#91a2bd;
+  --border:rgba(255,255,255,.09);
+}
+*{box-sizing:border-box;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,sans-serif;
+}
+a{color:inherit;text-decoration:none}
+header{
+  position:sticky;top:0;z-index:10;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:17px 7%;background:rgba(8,13,27,.9);
+  backdrop-filter:blur(15px);border-bottom:1px solid var(--border);
+}
+.logo{font-size:21px;font-weight:900}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:22px;font-size:13px;color:var(--muted)}
+nav a:hover{color:white}
+.menu-btn{display:none;background:none;border:0;color:white;font-size:24px}
+.hero{
+  min-height:510px;padding:90px 8%;
+  display:flex;align-items:center;justify-content:space-between;gap:35px;
+  background:radial-gradient(ellipse at 80% 40%,#123c77 0%,transparent 48%);
+}
+.hero-content{max-width:570px}
+.tag{
+  display:inline-block;padding:8px 13px;border-radius:30px;
+  background:#142b4b;color:#76b5ff;font-size:12px;
+  border:1px solid #24538a;
+}
+h1{font-size:clamp(42px,8vw,72px);line-height:1.05;margin:22px 0}
+h1 span{color:var(--blue)}
+.hero p{color:var(--muted);line-height:1.8;max-width:470px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:27px}
+.btn{
+  display:inline-block;padding:13px 20px;border-radius:12px;
+  background:var(--blue);font-weight:bold;font-size:13px;
+}
+.btn.secondary{background:#17243a;border:1px solid var(--border)}
+.hero-image{
+  width:min(300px,75vw);aspect-ratio:1;object-fit:cover;
+  border-radius:28px;border:2px solid #398bff55;
+  box-shadow:0 0 65px #1676ff33;
+}
+section{padding:65px 8%}
+.section-title{text-align:center;margin-bottom:35px}
+.section-title h2{font-size:30px;margin:0 0 10px}
+.section-title p{color:var(--muted);font-size:14px}
+.about,.dashboard,.docs{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:20px;padding:25px;line-height:1.8;
+}
+.about p{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--border);
+  padding:20px;border-radius:17px;transition:.2s;
+}
+.card:hover{transform:translateY(-5px);border-color:#398bff88}
+.card .icon{font-size:27px}
+.card h3{margin:12px 0 7px}
+.card p{font-size:13px;color:var(--muted);line-height:1.6}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}
+.stat{
+  text-align:center;background:var(--panel);
+  border:1px solid var(--border);padding:22px 8px;border-radius:16px;
+}
+.stat strong{display:block;font-size:28px;color:var(--blue)}
+.stat span{font-size:12px;color:var(--muted)}
+.command{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:10px;padding:12px 0;border-bottom:1px solid var(--border);
+  font-size:13px;
+}
+.command code{color:#77b5ff}
+.copy{
+  border:0;border-radius:8px;background:#1d3455;
+  color:white;padding:8px 12px;
+}
+.contact{text-align:center}
+footer{
+  text-align:center;padding:28px;color:var(--muted);
+  border-top:1px solid var(--border);font-size:12px;
+}
+@media(max-width:700px){
+  header{padding:15px 5%}
+  nav{display:none;position:absolute;top:60px;left:0;right:0;
+    background:#101a30;padding:20px;flex-direction:column}
+  nav.show{display:flex}
+  .menu-btn{display:block}
+  .hero{padding:65px 7%;flex-direction:column;text-align:center}
+  .hero p{margin:auto}
+  .actions{justify-content:center}
+  .hero-image{width:210px}
+  section{padding:48px 6%}
+  .grid{grid-template-columns:repeat(2,1fr);gap:11px}
+  .card{padding:15px}
+  .stats{gap:8px}
+  .stat strong{font-size:23px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">SOPHIE<span>.</span></div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#stats">Statistics</a>
+    <a href="#docs">Commands</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="tag">✦ YOUR SMART WHATSAPP ASSISTANT</span>
+    <h1>Meet <span>Sophie</span> Bot.</h1>
+    <p>Asisten WhatsApp pintar dengan berbagai fitur menarik, permainan, AI, tools, ekonomi, dan masih banyak lagi.</p>
+    <div class="actions">
+      <a class="btn" href="https://whatsapp.com/channel/0029VbE9Q0a1CYoUM2c9FF0i" target="_blank">Join WhatsApp Channel ↗</a>
+      <a class="btn secondary" href="#features">Explore Features</a>
+    </div>
+  </div>
+  <img class="hero-image" src="https://files.catbox.moe/p5qk15.jpg" alt="Sophie Bot Thumbnail">
+</section>
+
+<section id="about">
+  <div class="section-title">
+    <h2>About Sophie</h2>
+    <p>Kenalan dengan asisten WhatsApp kamu.</p>
+  </div>
+  <div class="about">
+    <h3>💙 Sophie Bot</h3>
+    <p>Sophie Bot adalah bot WhatsApp multifungsi yang dirancang untuk menemani aktivitas sehari-hari. Nikmati berbagai fitur hiburan, permainan, AI, pengelolaan grup, dan fitur lainnya dalam satu bot.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="section-title">
+    <h2>Explore Features</h2>
+    <p>Berbagai kategori fitur Sophie Bot.</p>
+  </div>
+  <div class="grid">
+    <article class="card"><div class="icon">🎮</div><h3>Games</h3><p>Permainan seru dan mini games untuk menghibur pengguna.</p></article>
+    <article class="card"><div class="icon">🛠️</div><h3>Tools</h3><p>Berbagai alat bantu untuk kebutuhan sehari-hari.</p></article>
+    <article class="card"><div class="icon">🤖</div><h3>Artificial Intelligence</h3><p>Fitur AI untuk membantu menjawab dan mengolah informasi.</p></article>
+    <article class="card"><div class="icon">💰</div><h3>Economy</h3><p>Sistem ekonomi virtual, bisnis, kerja, dan aktivitas lainnya.</p></article>
+    <article class="card"><div class="icon">👥</div><h3>Group</h3><p>Fitur untuk membantu pengelolaan grup WhatsApp.</p></article>
+    <article class="card"><div class="icon">⚙️</div><h3>Admin</h3><p>Pengaturan dan fitur khusus administrator bot.</p></article>
+  </div>
+</section>
+
+<section id="stats">
+  <div class="section-title">
+    <h2>Bot Statistics</h2>
+    <p>Informasi Sophie Bot.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><strong>200+</strong><span>Mini Games</span></div>
+    <div class="stat"><strong>6</strong><span>Feature Categories</span></div>
+    <div class="stat"><strong>24/7</strong><span>Bot Availability*</span></div>
+  </div>
+  <p style="font-size:11px;color:var(--muted);text-align:center">*Ketersediaan bergantung pada server dan koneksi bot.</p>
+</section>
+
+<section id="docs">
+  <div class="section-title">
+    <h2>Command Documentation</h2>
+    <p>Contoh perintah untuk menggunakan Sophie.</p>
+  </div>
+  <div class="docs">
+    <div class="command"><code>.menu</code><button class="copy" onclick="copyText('.menu')">Copy</button></div>
+    <div class="command"><code>.profile</code><button class="copy" onclick="copyText('.profile')">Copy</button></div>
+    <div class="command"><code>.game</code><button class="copy" onclick="copyText('.game')">Copy</button></div>
+    <div class="command"><code>.bisnis</code><button class="copy" onclick="copyText('.bisnis')">Copy</button></div>
+    <div class="command"><code>.kerja</code><button class="copy" onclick="copyText('.kerja')">Copy</button></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2>Connect With Us</h2>
+    <p>Ikuti kabar terbaru dan hubungi owner Sophie Bot.</p>
+  </div>
+  <div class="actions" style="justify-content:center">
+    <a class="btn" href="https://whatsapp.com/channel/0029VbE9Q0a1CYoUM2c9FF0i" target="_blank">WhatsApp Channel</a>
+    <a class="btn secondary" href="https://wa.me/6285196203796" target="_blank">Contact Owner</a>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Sophie Bot. All rights reserved.</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('show');
+}
+function copyText(text){
+  navigator.clipboard.writeText(text).then(()=>{
+    alert('Command berhasil disalin: '+text);
+  }).catch(()=>{
+    alert('Salin command: '+text);
+  });
+}
+</script>
+</body>
+</html>
